@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Just title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="app">
+  <div class="container">
+    <div class="wrapper">
+      <a href="#" class="logo">
+        <img :src="allImg.logo" alt="">
+      </a>
+      <div class="flex flex-center">
+        <img :src="allImg.selfCase" alt="" class="case">
+      </div>
+      <div class="profile">
+        <div class="contant-data">
+          <label :for="'field_' + index" v-for="(contactData, index) in contactDatas">
+            <span class="title">
+              {{ contactData.title }}
+            </span>
+            <input v-model="contactData.model" :type="contactData.type" :id="'field_' + index">
+          </label>
+        </div>
+      </div>
+      <div class="chekboxes">
+        <h2>Расскажите о себе чекбоксами</h2>
+        <p>
+          Отметьте чекбоксами пункты, которые соответствуют вашим скиллам. Отсутствие опыта не означает, что у вас
+          меньше шансов стать одним из наших товарищей. Это означает, что вы будете получать те задачи, с которыми
+          гарантировано будете справляться.
+        </p>
+      </div>
+      <div class="chekboxes-wrapper">
+        <div class="checkbox" v-for="(checkbox, index) in checkboxes">
+          <input v-model="checkboxModel" :value="checkbox" type="checkbox" :id="'checkbox_' + index" hidden>
+          <label :for="'checkbox_' + index">{{ checkbox }}</label>
+        </div>
+      </div>
+      <div class="levels">
+        <h2>
+          Уровень владения JavaScript
+        </h2>
+        <div class="levels-radio">
+          <div class="radio" v-for="(radio, index) in radios">
+            <input v-model="radioModel" :value="radio" type="radio" :id="'radio_' + index">
+            <label :for="'radio_' + index">{{ radio }}</label>
+          </div>
+        </div>
+      </div>
+      <div class="date">
+        <div class="contant-data">
+          <label for="date">
+            <span class="title">
+              Дата заполнения
+            </span>
+            <input v-model="date" type="text" id="date">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/main.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            allImg: {
+                logo: 'img/logo.jpg',
+                selfCase: 'img/delo.png'
+            },
+            date: '01.15.2020',
+            contactDatas: [
+                {
+                    title: 'Полное имя',
+                    model: 'Зубков Дмитрий Васильевич',
+                    type: 'text'
+                },
+                {
+                    title: 'Год рождения',
+                    model: '1997',
+                    type: 'text'
+                },
+                {
+                    title: 'Место жительства',
+                    model: 'г. Харьков',
+                    type: 'text'
+                },
+                {
+                    title: 'Скайп',
+                    model: 'dzpower20',
+                    type: 'text'
+                },
+                {
+                    title: 'Почта',
+                    model: 'supdzpower@gmail.com',
+                    type: 'email'
+                }
+            ],
+            checkboxModel: [
+                'Методология БЭМ',
+                'jQuery',
+                'HAML',
+                'SASS',
+                'Vue.js',
+                'Верстка рассылок',
+                'Адаптивная верстка',
+                'Git'
+            ],
+            checkboxes: [
+                'Методология БЭМ',
+                'jQuery',
+                'HAML',
+                'SASS',
+                'Vue.js',
+                'Верстка рассылок',
+                'Адаптивная верстка',
+                'Git'
+            ],
+            radioModel: 'JS для верстки',
+            radios: [
+                'Не владею',
+                'Базовые навыки',
+                'JS для верстки',
+                'Пишу partyHard JS'
+            ]
+        }
+    })
+</script>
+</body>
+</html>

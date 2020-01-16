@@ -1,0 +1,390 @@
+@import "partials/variables";
+@import "partials/fonts";
+@import "partials/rules";
+@import "partials/functions";
+
+//===============main scss=====================================
+
+html{
+	font-size: 12.8px;
+
+  @media (max-width: 1024px){
+	font-size: 1vw;
+  }
+  @media (max-width: 640px){
+	font-size: 3vw;
+  }
+}
+
+.container{
+  width: 100%;
+  background: transparent url(../img/back-first.jpg) top left no-repeat;
+  background-size: cover;
+}
+
+.wrapper{
+  background: transparent url(../img/back-second.jpg) top left no-repeat;
+  background-size: cover;
+  width: 1001px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 118px;
+  padding-right: 113px;
+  padding-top: 48px;
+  padding-bottom: 140px;
+
+  @media (max-width: 1024px){
+	width: 90%;
+  }
+
+  @media (max-width: 640px){
+	width: 100%;
+	padding-top: 10vw;
+	padding-bottom: 10vw;
+	padding-left: 6vw;
+	padding-right: 6vw;
+	background-attachment: fixed;
+	background-size: 200%;
+  }
+}
+
+.logo{
+  margin-bottom: 38px;
+  width: 77px;
+  display: inline-flex;
+
+  @media (max-width: 640px){
+	width: 20%;
+	margin-bottom: 10vw;
+  }
+
+  img{
+	width: 100%;
+  }
+}
+
+.flex{
+  width: 100%;
+  display: flex;
+
+  &-center{
+	justify-content: center;
+
+	@media (max-width: 640px){
+	  flex-wrap: wrap;
+	}
+  }
+}
+
+.case{
+  width: 193px;
+  margin-bottom: 65px;
+
+  @media (max-width: 640px){
+	width: 30%;
+	margin-bottom: 10vw;
+  }
+}
+
+.contant-data{
+  width: 100%;
+
+  label{
+	display: inline-flex;
+	width: 100%;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding-bottom: 25px;
+
+	@media (max-width: 640px){
+	  flex-direction: column;
+	  padding-bottom: 6vw;
+	}
+
+	span{
+	  font-size: rem(23);
+	  font-weight: bold;
+	  color: $color-red-d;
+	  margin-right: 18px;
+	}
+
+	input{
+	  background: transparent url('../img/line.png') bottom repeat-x;
+	  background-size: 100%;
+	  flex-grow: 1;
+	  padding-bottom: 10px;
+	  margin-top: -10px;
+	  font-family: $font-c;
+	  font-size: rem(30);
+	  color: $color-light-dark;
+	  font-weight: 400;
+
+	  @media (max-width: 640px){
+		margin-top: 3vw;
+		width: 100%;
+		padding-bottom: 6vw;
+	  }
+	}
+  }
+}
+
+h2{
+  font-size: rem(24);
+  color: $color-red-d;
+  font-weight: bold;
+  padding-bottom: 18px;
+}
+
+.chekboxes{
+  width: 100%;
+  padding-top: 40px;
+
+  @media (max-width: 640px){
+	padding-top: 0;
+  }
+
+  p{
+	font-size: rem(15);
+	color: $color-silver;
+	font-weight: 400;
+	padding-bottom: 35px;
+  }
+
+  &-wrapper{
+	width: 100%;
+	display: flex;
+	max-height: 225px;
+	flex-direction: column;
+	flex-wrap: wrap;
+	padding-bottom: 45px;
+
+	@media (max-width: 640px){
+	  max-height: 100000px;
+	  padding-bottom: 4vw;
+	}
+
+	.checkbox{
+	  padding-bottom: 20px;
+
+	  @media (max-width: 640px){
+		padding-bottom: 2vw;
+	  }
+
+	  input[type="checkbox"] {
+		opacity: 0;
+	  }
+
+	  label {
+		position: relative;
+		display: inline-block;
+		padding-left: 28px;
+		font-size: rem(21);
+		font-weight: bold;
+		cursor: pointer;
+		user-select: none;
+		color: $color-red-d;
+	  }
+	}
+
+	.checkbox label::before,
+	.checkbox label::after {
+	  position: absolute;
+	  content: "";
+	  display: inline-block;
+	}
+	.checkbox label::before{
+	  height: 19px;
+	  width: 18px;
+	  background: transparent url(../img/back-check.png) left no-repeat;
+	  -webkit-background-size: 100%;
+	  background-size: 100%;
+	  left: 0px;
+	  top: 4px;
+	}
+
+	.checkbox label::after {
+	  height: 21px;
+	  width: 27px;
+	  background: transparent url(../img/check.png) left no-repeat;
+	  background-size: auto 100%;
+	  left: 4px;
+	  top: -2px;
+	}
+
+	.checkbox input[type="checkbox"] + label::after {
+	  content: none;
+	}
+
+	.checkbox input[type="checkbox"]:checked + label::after {
+	  content: "";
+	}
+  }
+}
+
+.levels{
+  width: 100%;
+
+  &-radio{
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding-top: 30px;
+	margin-top: 40px;
+	background: transparent url(../img/line.png) top center no-repeat;
+	background-size: 100%;
+
+	@media (max-width: 640px){
+	  background-image: none;
+	  padding-left: 4vw;
+	  margin-left: 4vw;
+	  border-left: 2px solid $purple;
+	  flex-direction: column;
+	}
+
+	@media (max-width: 640px){
+	  margin-top: 3vw;
+	  padding-bottom: 4vw;
+	}
+
+	.radio{
+	  margin-top: -21px;
+	  flex-basis: 170px;
+	  margin-right: auto;
+	  min-height: 34px;
+
+	  @media (max-width: 640px){
+		margin-top: 0;
+		flex-basis: 100%;
+		padding-left: 4vw;
+	  }
+
+	  input[type="radio"] {
+		opacity: 0;
+	  }
+
+	  label {
+		padding-top: 10px;
+		width: 100%;
+		position: relative;
+		display: inline-block;
+		font-size: rem(13);
+		font-weight: bold;
+		cursor: pointer;
+		user-select: none;
+		color: $color-red-d;
+
+		@media (max-width: 640px){
+		  font-size: rem(20);
+		  font-weight: bold;
+		  color: $color-red-d;
+		  margin-top: -5vw;
+		  padding-top: 0;
+		  padding-bottom: 6vw;
+		}
+
+	  }
+	}
+
+	.radio label::before,
+	.radio label::after {
+	  position: absolute;
+	  content: "";
+	  display: inline-block;
+	}
+	.radio label::before{
+	  width: 2px;
+	  height: 24px;
+	  top: auto;
+	  left: 0;
+	  bottom: 100%;
+	  background: $purple;
+
+	  @media (max-width: 640px){
+		width: 6vw;
+		height: 2px;
+		top: 1vw;
+		left: -7.8vw;
+	  }
+	}
+	.radio:last-child{
+	  margin-right: 0;
+	  text-align: right;
+
+	  @media (max-width: 640px){
+		text-align: left;
+	  }
+	}
+
+	.radio:last-child label::after{
+	  left: auto;
+	  right: -3px;
+
+	  @media (max-width: 640px){
+		right: auto;
+		top: -.4vw;
+		left: -14.8vw;
+	  }
+	}
+	.radio:last-child label::before{
+	  left: auto;
+	  right: 1px;
+
+	  @media (max-width: 640px){
+		width: 6vw;
+		height: 2px;
+		top: 1vw;
+		left: -7.8vw;
+	  }
+	}
+
+	.radio label::after {
+	  border: 6px solid $purple;
+	  border-top: 6px solid transparent;
+	  border-right: 6px solid transparent;
+	  transform: rotate(-45deg);
+	  background: transparent url(../img/check.png) left no-repeat;
+	  background-size: auto 100%;
+	  left: -5px;
+	  top: -45px;
+
+	  @media (max-width: 640px){
+		transform: rotate(-135deg);
+		top: -.4vw;
+		left: -14.8vw;
+	  }
+	}
+
+	.radio input[type="radio"] + label::after {
+	  content: none;
+	}
+
+	.radio input[type="radio"]:checked + label::after {
+	  content: "";
+	}
+  }
+}
+
+.date{
+  width: 100%;
+  display: inline-flex;
+  padding-top: 65px;
+
+  @media (max-width: 640px){
+	padding-top: 6vw;
+  }
+
+  label{
+
+	input{
+	  flex-grow: 1;
+	  max-width: 200px;
+	  background-size: 600px;
+	  text-align: center;
+
+	  @media (max-width: 640px){
+		text-align: left;
+	  }
+	}
+  }
+}
